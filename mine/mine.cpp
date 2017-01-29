@@ -1,4 +1,4 @@
-// mineswiper.cpp : ƒRƒ“ƒ\[ƒ‹ ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ğ’è‹`‚µ‚Ü‚·B
+// mineswiper.cpp : ã‚³ãƒ³ã‚½ãƒ¼ãƒ« ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -12,17 +12,17 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int field[30][30] = {};
-	int bombnum = 100; //”š’e‚Ì”
+	int bombnum = 100; //çˆ†å¼¾ã®æ•°
 	int x, y;
 
 	HANDLE h;
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-	h = GetStdHandle(STD_OUTPUT_HANDLE); // •W€“üo—Í‚Ö‚Ìƒnƒ“ƒhƒ‹‚ğ“¾‚é
-	GetConsoleScreenBufferInfo(h, &csbi); // ƒRƒ“ƒ\[ƒ‹ƒXƒNƒŠ[ƒ“ƒoƒbƒtƒ@iŒ»İ‚Ìó‘Ôj‚ğ“¾‚é
+	h = GetStdHandle(STD_OUTPUT_HANDLE); // æ¨™æº–å…¥å‡ºåŠ›ã¸ã®ãƒãƒ³ãƒ‰ãƒ«ã‚’å¾—ã‚‹
+	GetConsoleScreenBufferInfo(h, &csbi); // ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒãƒƒãƒ•ã‚¡ï¼ˆç¾åœ¨ã®çŠ¶æ…‹ï¼‰ã‚’å¾—ã‚‹
 
 	srand((unsigned)time(NULL));
-	//‚X‚Í”š’e‚Æ‚·‚é
+	//ï¼™ã¯çˆ†å¼¾ã¨ã™ã‚‹
 	for (int i = 0; i <= bombnum;){
 
 		x = rand() % 30;
@@ -38,6 +38,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 			if (field[i][j] != 9){
 				for (int chx = 1; chx >= -1; chx--){
+
 					for (int chy = -1; chy <= 1; chy++){
 						if ((i + chx >= 0 && i + chx <= 29) && (j + chy >= 0 && j + chy <= 29)){
 							if (field[i + chx][j + chy] == 9){
@@ -53,14 +54,14 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 
-	printf("”š’e‚Ì”‚Í%d‚æ\n\n", bombnum);
+	printf("çˆ†å¼¾ã®æ•°ã¯%dã‚ˆ\n\n", bombnum);
 
 	for (int i = 0; i<30; i++){
 		for (int j = 0; j<30; j++){
 
 			if (field[i][j] == 9){
 
-				SetConsoleTextAttribute(h, FOREGROUND_RED); // •¶šF‚ğÔ‚É•ÏX
+				SetConsoleTextAttribute(h, FOREGROUND_RED); // æ–‡å­—è‰²ã‚’èµ¤ã«å¤‰æ›´
 				printf("%2d", field[i][j]);
 
 			}
@@ -86,10 +87,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
-/*‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ‚Ñ‚ñ
-‚¿‚­‚Á
-‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ 
-±°²¸
+/*ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“ã³ã‚“
+ã¡ãã£
+ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚ã‚
+ï½±ï½°ï½²ï½¸
 33-4
 
-ƒXƒYƒƒoƒ`‚É‚Í‹C‚ğ•t‚¯‚æ‚¤I*/
+ã‚¹ã‚ºãƒ¡ãƒãƒã«ã¯æ°—ã‚’ä»˜ã‘ã‚ˆã†ï¼
+ãã‚“ãªã“ã¨ã—ãªãã¦ã„ã„ã‹ã‚‰ï¼ˆè‰¯å¿ƒï¼‰*/
